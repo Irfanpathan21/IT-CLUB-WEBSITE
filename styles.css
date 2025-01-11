@@ -1,20 +1,26 @@
+/* General Body Styling */
 body {
     margin: 0;
     padding: 0;
     background-color: #000;
     color: #fff;
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes full viewport height */
 }
 
+/* Navigation Bar Styling */
 .Nav_Bar_Class {
-    position: absolute;
+    position: fixed; /* Fixed position to stick to the top */
     width: 100%;
     height: 75px;
-    top: 20px;
+    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #000;
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
 .Nav_Bar_Class ul {
@@ -49,24 +55,33 @@ body {
     height: 75px;
 }
 
-.Footer_Bg_Class {
+/* Main Content Styling */
+main {
+    flex: 1; /* Takes up the remaining space */
     position: relative;
+    margin-top: 75px; /* Accounts for the fixed header */
+}
+
+/* Footer Styling */
+.Footer_Bg_Class {
     width: 100%;
     background-color: #000;
     color: #fff;
     padding: 40px 20px;
     font-family: Arial, sans-serif;
+    margin-top: auto; /* Ensures footer sticks to the bottom */
 }
 
+/* Footer container to align sections */
 .footer-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    display: flex;
+    justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
     text-align: left;
 }
 
+/* Styling for footer sections */
 .footer-section {
     min-width: 200px;
 }
@@ -115,4 +130,106 @@ body {
 
 .footer-social a img:hover {
     transform: scale(1.2);
+}
+
+/* Base styles for SVG text animation */
+.engageAnimate, .createAnimate, .impactAnimate {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Styling for the SVG container */
+.engage svg, .create svg, .impact svg {
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+/* Styling for the text within the SVG */
+svg text {
+    text-transform: uppercase;
+    animation: strokeAndFade 5s infinite alternate;
+    stroke-width: 2;
+    stroke: #E12F2B;
+    font-size: 50px;
+}
+
+/* Keyframe animation for stroke and fade-in/fade-out effect */
+@keyframes strokeAndFade {
+    0% {
+        opacity: 0;
+        fill: rgba(72, 138, 20, 0);
+        stroke: #F26457;
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 2;
+    }
+    14% {
+        opacity:  0.4;
+        fill: rgba(72, 138, 20, 0);
+        stroke: #E12F2B;
+    }
+    50% {
+        opacity: 1;
+        fill: #F26457;
+        stroke: #BA1E1A;
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        stroke-width: 0;
+    }
+    100% {
+        opacity: 0;
+        fill: rgba(72, 138, 20, 0);
+        stroke:  #F26457;
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 2;
+    }
+}
+
+/* Styling for individual words */
+
+/* Top Left - ENGAGE */
+.engageAnimate {
+    top: 15%; /* Adjust to vertically center *//* Centers horizontally */
+    font-size: 150px;
+    color:  #E12F2B; /* Different color for this word */
+}
+
+/* Centered - EDUCATE */
+.educateAnimate {
+    top: 40%; /* Adjust to vertically center */
+    left: 50%;
+    font-size: 150px;   /* Larger size */
+    color: #F26457; /* Different color for this word */
+}
+
+/* Bottom Right - EVOLVE */
+.evolveAnimate {
+    top: 55%;  /* Adjust to vertically center */
+    right: 10%;
+    font-size: 150px;   /* Slightly smaller size */
+    color:  #BA1E1A;  /* Different color for this word */
+}
+
+/* Optional styles to reset margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Optional scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #F26457;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #1d1e18;
 }
