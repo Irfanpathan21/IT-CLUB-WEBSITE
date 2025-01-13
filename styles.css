@@ -7,12 +7,12 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure body takes full viewport height */
+    min-height: 100vh;
 }
 
 /* Navigation Bar Styling */
 .Nav_Bar_Class {
-    position: fixed; /* Fixed position to stick to the top */
+    position: fixed;
     width: 100%;
     height: 75px;
     top: 0;
@@ -20,7 +20,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #000;
-    z-index: 1000; /* Ensure it stays above other content */
+    z-index: 1000;
 }
 
 .Nav_Bar_Class ul {
@@ -57,9 +57,9 @@ body {
 
 /* Main Content Styling */
 main {
-    flex: 1; /* Takes up the remaining space */
+    flex: 1;
     position: relative;
-    margin-top: 75px; /* Accounts for the fixed header */
+    margin-top: 75px;
 }
 
 /* Footer Styling */
@@ -69,10 +69,9 @@ main {
     color: #fff;
     padding: 40px 20px;
     font-family: Arial, sans-serif;
-    margin-top: auto; /* Ensures footer sticks to the bottom */
+    margin-top: auto;
 }
 
-/* Footer container to align sections */
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -81,7 +80,6 @@ main {
     text-align: left;
 }
 
-/* Styling for footer sections */
 .footer-section {
     min-width: 200px;
 }
@@ -139,14 +137,12 @@ main {
     height: 100%;
 }
 
-/* Styling for the SVG container */
 .engage svg, .create svg, .impact svg {
     font-family: "Montserrat", sans-serif;
     width: 100%;
     height: 100%;
 }
 
-/* Styling for the text within the SVG */
 svg text {
     text-transform: uppercase;
     animation: strokeAndFade 5s infinite alternate;
@@ -155,7 +151,6 @@ svg text {
     font-size: 50px;
 }
 
-/* Keyframe animation for stroke and fade-in/fade-out effect */
 @keyframes strokeAndFade {
     0% {
         opacity: 0;
@@ -189,47 +184,143 @@ svg text {
 }
 
 /* Styling for individual words */
-
-/* Top Left - ENGAGE */
 .engageAnimate {
-    top: 15%; /* Adjust to vertically center *//* Centers horizontally */
+    top: 15%;
     font-size: 150px;
-    color:  #E12F2B; /* Different color for this word */
+    color:  #E12F2B;
 }
 
-/* Centered - EDUCATE */
 .educateAnimate {
-    top: 40%; /* Adjust to vertically center */
+    top: 40%;
     left: 50%;
-    font-size: 150px;   /* Larger size */
-    color: #F26457; /* Different color for this word */
+    font-size: 150px;
+    color: #F26457;
 }
 
-/* Bottom Right - EVOLVE */
 .evolveAnimate {
-    top: 55%;  /* Adjust to vertically center */
+    top: 55%;
     right: 10%;
-    font-size: 150px;   /* Slightly smaller size */
-    color:  #BA1E1A;  /* Different color for this word */
+    font-size: 150px;
+    color:  #BA1E1A;
 }
 
-/* Optional styles to reset margins and paddings */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Responsive Media Queries */
+
+/* For screens smaller than 1200px */
+@media (max-width: 1199px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+        width: 140px;
+        height: 140px;
+    }
+
+    svg text {
+        font-size: 40px;
+    }
+
+    .Nav_Bar_Class ul li {
+        margin: 0 10px;
+    }
+
+    .footer-social a img {
+        width: 25px;
+        height: 25px;
+    }
 }
 
-/* Optional scrollbar styling */
-::-webkit-scrollbar {
-    width: 10px;
+/* For screens smaller than 992px */
+@media (max-width: 991px) {
+    .Nav_Bar_Class {
+        height: 60px;
+    }
+
+    .Nav_Bar_Class ul li {
+        margin: 0 15px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    svg text {
+        font-size: 35px;
+    }
+
+    .footer-logo img {
+        width: 130px;
+        height: 130px;
+    }
 }
 
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: #F26457;
+/* For screens smaller than 768px */
+@media (max-width: 767px) {
+    body {
+        padding: 0 15px;
+    }
+
+    .Nav_Bar_Class ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .footer-logo img {
+        width: 120px;
+        height: 120px;
+    }
+
+    svg text {
+        font-size: 30px;
+    }
+
+    .footer-social a img {
+        width: 20px;
+        height: 20px;
+    }
 }
 
-::-webkit-scrollbar-track {
-    background-color: #1d1e18;
+/* For screens smaller than 480px */
+@media (max-width: 479px) {
+    .Nav_Bar_Class ul {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .Nav_Bar_Class ul li {
+        margin: 5px 0;
+    }
+
+    svg text {
+        font-size: 25px;
+    }
+
+    .footer-logo img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .footer-social a img {
+        width: 15px;
+        height: 15px;
+    }
 }
