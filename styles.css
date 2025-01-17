@@ -6,8 +6,9 @@ body {
     color: #fff;
     font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure body takes full viewport height */
+    flex-direction: column
+    width: 1920px;
+    height: 4633px
 }
 
 /* Navigation Bar Styling */
@@ -192,25 +193,57 @@ svg text {
 
 /* Top Left - ENGAGE */
 .engageAnimate {
-    top: 15%; /* Adjust to vertically center *//* Centers horizontally */
-    font-size: 150px;
-    color:  #E12F2B; /* Different color for this word */
+    filter: blur(0px);
+    left: 388px;
+    top: 322px;
+    position: absolute;
+    overflow: visible;
+    width: 500px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 80px;
+    color: rgba(79, 231, 220, 1);
+    letter-spacing: 0.45px;
 }
 
 /* Centered - EDUCATE */
 .educateAnimate {
-    top: 40%; /* Adjust to vertically center */
-    left: 50%;
-    font-size: 150px;   /* Larger size */
-    color: #F26457; /* Different color for this word */
+    filter: blur(0px);
+    left: 706px;
+    top: 475px;
+    position: absolute;
+    overflow: visible;
+    width: 500px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 80px;
+    color: rgba(79, 231, 220, 1);
+    letter-spacing: 0.45px;
+}
 }
 
 /* Bottom Right - EVOLVE */
 .evolveAnimate {
-    top: 55%;  /* Adjust to vertically center */
-    right: 10%;
-    font-size: 150px;   /* Slightly smaller size */
-    color:  #BA1E1A;  /* Different color for this word */
+     filter: blur(0px);
+    left: 388px;
+    top: 322px;
+    position: absolute;
+    overflow: visible;
+    width: 500px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 80px;
+    color: rgba(79, 231, 220, 1);
+    letter-spacing: 0.45px;
 }
 
 /* Optional styles to reset margins and paddings */
