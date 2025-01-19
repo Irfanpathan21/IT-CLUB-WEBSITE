@@ -152,7 +152,7 @@ svg text {
     animation: strokeAndFade 5s infinite alternate;
     stroke-width: 2;
     stroke: #E12F2B;
-    font-size: 50px;
+    font-size: 80px;
 }
 
 /* Keyframe animation for stroke and fade-in/fade-out effect */
@@ -160,7 +160,7 @@ svg text {
     0% {
         opacity: 0;
         fill: rgba(72, 138, 20, 0);
-        stroke: #F26457;
+        stroke: #E12F2B;
         stroke-dashoffset: 25%;
         stroke-dasharray: 0 50%;
         stroke-width: 2;
@@ -172,8 +172,8 @@ svg text {
     }
     50% {
         opacity: 1;
-        fill: #F26457;
-        stroke: #BA1E1A;
+        fill: #E12F2B;
+        stroke: #E12F2B;
         stroke-dashoffset: -25%;
         stroke-dasharray: 50% 0;
         stroke-width: 0;
@@ -181,7 +181,7 @@ svg text {
     100% {
         opacity: 0;
         fill: rgba(72, 138, 20, 0);
-        stroke:  #F26457;
+        stroke:  #E12F2B;
         stroke-dashoffset: 25%;
         stroke-dasharray: 0 50%;
         stroke-width: 2;
