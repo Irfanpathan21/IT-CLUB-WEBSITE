@@ -6,52 +6,616 @@
     <title>IT CLUB-UPG</title>
     <link rel="icon" type="image/x-icon" href="./assets/itclublogo.png">
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Be Vietnam Pro', sans-serif;
+      }
+  
+      .section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 1.25rem;
+        background-color: #fff9f0;
+        text-align: center;
+        color: #083E32;
+      }
+  
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 2rem;
+      }
+  
+      h2 {
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+  
+      p {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+  
+      .video-container {
+        width: 100%;
+        max-width: 48rem;
+        margin-top: 2.5rem;
+        position: relative;
+        cursor: pointer;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+        background: #000;
+      }
+  
+      .thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+  
+      .play-button {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+  
+      .play-icon {
+        opacity: 0.8;
+        border-radius: 0.75rem;
+        background-color: black;
+        transition: all 0.3s ease-in-out;
+      }
+  
+      .video-container:hover .play-icon {
+        background-color: #dc2626;
+      }
+  
+      .youtube-embed {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+  
+      @media (min-width: 1024px) {
+        h2 {
+          font-size: 1.875rem;
+        }
+        p {
+          font-size: 1.25rem;
+        }
+      }
+      
+    </style>
+    <style>
+      .marquee-container {
+        position: relative;
+        width: 100%;
+        height: 48px;
+        background-color: rgb(0, 0, 0);
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+  
+      @media (min-width: 640px) {
+        .marquee-container {
+          height: 64px;
+        }
+      }
+  
+      @media (min-width: 768px) {
+        .marquee-container {
+          height: 80px;
+        }
+      }
+  
+      .gradient-left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 96px;
+        background: linear-gradient(to right, black, transparent);
+        z-index: 10;
+        pointer-events: none;
+      }
+  
+      @media (min-width: 640px) {
+        .gradient-left {
+          width: 128px;
+        }
+      }
+  
+      @media (min-width: 768px) {
+        .gradient-left {
+          width: 192px;
+        }
+      }
+  
+      .gradient-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 96px;
+        background: linear-gradient(to left, black, transparent);
+        z-index: 10;
+        pointer-events: none;
+      }
+  
+      @media (min-width: 640px) {
+        .gradient-right {
+          width: 128px;
+        }
+      }
+  
+      @media (min-width: 768px) {
+        .gradient-right {
+          width: 192px;
+        }
+      }
+  
+      .marquee-content {
+        display: flex;
+        white-space: nowrap;
+        animation: marquee 30s linear infinite;
+      }
+  
+      .marquee-item {
+        color: #fde047;
+        font-size: 0.875rem;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 16px;
+      }
+  
+      @media (min-width: 640px) {
+        .marquee-item {
+          font-size: 1.125rem;
+          padding: 0 24px;
+        }
+      }
+  
+      @media (min-width: 768px) {
+        .marquee-item {
+          font-size: 1.5rem;
+          padding: 0 32px;
+        }
+      }
+  
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+    <style>
+      .bg-black-200 { background-color: #000000; }
+      .text-cream-50 { color: #f5f5f0; }
+      .text-yellow-300 { color: #ffd700; }
+      .border-yellow-300 { border-color: #ffd700; }
+      .container { max-width: 80rem; margin: 0 auto; padding: 48px 16px; }
+      .heading { text-align: center; margin-bottom: 3rem; }
+      .title { font-size: 3.75rem; font-weight: 600; }
+      .subtitle { font-size: 1.125rem; opacity: 0.8; }
+      
+      .mentor-blur {
+          position: relative;
+      }
+      
+      .mentor-blur::before,
+      .mentor-blur::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 100px;
+          z-index: 2;
+          pointer-events: none;
+      }
+      
+      .mentor-blur::before {
+          left: 0;
+          background: linear-gradient(to right, #1a1a1a, transparent);
+      }
+      
+      .mentor-blur::after {
+          right: 0;
+          background: linear-gradient(to left, #1a1a1a, transparent);
+      }
+      
+      .scroll-container {
+          overflow: hidden;
+          white-space: nowrap;
+          width: 100%;
+          padding: 20px 0;
+      }
+      
+      .scroll-content {
+          display: inline-block;
+          animation: scroll 60s linear infinite;
+      }
+      
+      .project-card {
+          display: inline-block;
+          width: 280px;
+          height: 360px;
+          margin: 0 10px;
+          background: #f5f5f0;
+          border-radius: 1rem;
+          border: 2px solid #2a2a2a;
+          padding: 1rem;
+          vertical-align: top;
+      }
+      
+      .project-image {
+          width: 100%;
+          height: 200px;
+          border-radius: 0.75rem;
+          border: 2px solid #2a2a2a;
+          overflow: hidden;
+      }
+      
+      .project-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+      
+      .project-info {
+          padding: 1rem 0;
+          text-align: left;
+      }
+      
+      .project-title {
+          font-size: 1.25rem;
+          font-weight: bold;
+          color: #1a1a1a;
+          margin-bottom: 0.5rem;
+      }
+      
+      .project-description {
+          font-size: 0.875rem;
+          color: #4a4a4a;
+      }
+      
+      .project-creator {
+          font-size: 0.875rem;
+          color: #666;
+          margin-top: 0.5rem;
+      }
+      
+      @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-100%); }
+      }
+      
+      .filter-buttons {
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+          margin-bottom: 2rem;
+      }
+      
+      .filter-button {
+          padding: 0.75rem 2rem;
+          border-radius: 9999px;
+          border: 1px solid #fff;
+          background: transparent;
+          color: #fff;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+      }
+      
+      .filter-button.active {
+          border-color: #ffd700;
+          color: #ffd700;
+      }
+      </style>
+      <style>
+        .register-container {
+          position: absolute;
+          top: 60%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          z-index: 10;
+        }
+        
+        .register-btn {
+          padding: 15px 30px;
+          font-size: 18px;
+          font-weight: bold;
+          color: #ffffff;
+          background-color: #E12F2B;
+          border: none;
+          border-radius: 25px;
+          cursor: pointer;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          transition: all 0.3s ease;
+          text-decoration: none;
+          display: inline-block;
+          margin-top: 350px;
+        }
+        
+        .register-btn:hover {
+          background-color: #E12F2B;
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px #ffd70050;
+        }
+      </style>
+    <style>
+      
+    </style>
   </head>
   <body>
     <!-- Header Section -->
     <header class="Nav_Bar_Class">
       <ul>
-        <li><a href="https://irfanpathan21.github.io/IT-CLUB-WEBSITE/index.html">HOME</a></li>
+        <li><a href="index.html">HOME</a></li>
         <li><a href="#">ABOUT</a></li>
         <li><a href="#">DEPARTMENTS</a></li>
-        <li>
-          <a href="https://irfanpathan21.github.io/IT-CLUB-WEBSITE/index.html">
-            <img src="./assets/itclublogo.png" alt="Logo" class="logo" />
-          </a>
-        </li>
+       
         <li><a href="#">EVENTS</a></li>
-        <li><a href="#">PROJECTS</a></li>
+        <li><a href="project.html">PROJECTS</a></li>
         <li><a href="https://upg-chatbot.onrender.com/">CHAT WITH AI</a></li>
       </ul>
     </header>
-    <div id="particles-js"></div>
+    <div id="particles-js">
+      <div class="register-container">
+        <a href="#registration-section" class="register-btn">Join Us</a>
+      </div>
+    </div>
     <script type="text/javascript" src="particles.js"></script>
     <script type="text/javascript" src="app.js"></script>
-    <!-- Main Content Section 
-    <main>
-     
-      <div class="educateAnimate">
-        <svg class="educate" viewBox="0 0 1000 200">
-          <text x="6.5%" y="70%" dy=".35em" text-anchor="begin">CREATE.</text>
-        </svg>
+    <section class="section">
+      <div class="content">
+        <h2>Welcome to UPG IT Club</h2>
+        <p>Innovate. Create. Transform.</p>
+        
+        <h2 style="margin-top: 0.5rem;">Join Our Tech Community</h2>
+        <p>
+          UPG IT Club is a dynamic student community focused on emerging technologies,
+          hands-on projects, and professional development in the IT field.
+        </p>
       </div>
-
+  
+      <div class="video-container" id="videoContainer">
+        <img src="https://img.youtube.com/vi/PDpr-WhafYE/hqdefault.jpg" alt="IT Club Video" class="thumbnail" onerror="this.src='https://img.youtube.com/vi/PDpr-WhafYE/mqdefault.jpg'">
+        <div class="play-button">
+          <div class="play-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="50" fill="white" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="marquee-container">
+      <div class="gradient-left"></div>
+      <div class="gradient-right"></div>
+      <div class="marquee-content" id="marquee">
+        <!-- Content will be added by JavaScript -->
+      </div>
+    </div>
+    <div class="bg-black-200">
+      <div class="container">
+          <div class="heading">
+              <h2 class="title text-cream-50">Top projects</h2>
+              <p class="subtitle text-cream-50">Innovative solutions changing the world.</p>
+          </div>
+  
+          <div class="filter-buttons">
+              <button class="filter-button active">All Projects</button>
+              <button class="filter-button">Tech</button>
+              <button class="filter-button">Science</button>
+              <button class="filter-button">Art</button>
+          </div>
+  
+          <div class="mentor-blur scroll-container">
+              <div class="scroll-content" id="projectContainer"></div>
+              <div class="scroll-content" id="projectContainerClone"></div>
+          </div>
+      </div>
+  </div>
+  
+  <script>
+  const projects = [
+      {
+          title: "AI Healthcare Assistant",
+          description: "Machine learning model for early disease detection and diagnosis assistance",
+          creator: "Sarah Chen",
+          image: "/api/placeholder/400/320",
+          category: "Tech"
+      },
+      {
+          title: "Eco Smart Home",
+          description: "IoT-based energy management system for sustainable living",
+          creator: "Alex Rivera",
+          image: "/api/placeholder/400/320",
+          category: "Tech"
+      },
+      {
+          title: "AR Education Platform",
+          description: "Augmented reality platform for interactive learning experiences",
+          creator: "Maya Patel",
+          image: "/api/placeholder/400/320",
+          category: "Tech"
+      },
+      {
+          title: "Ocean Cleanup Drone",
+          description: "Autonomous drone for collecting ocean plastic waste",
+          creator: "James Wilson",
+          image: "/api/placeholder/400/320",
+          category: "Science"
+      },
+      {
+          title: "Digital Art Gallery",
+          description: "Virtual exhibition space for digital artists worldwide",
+          creator: "Emma Chang",
+          image: "/api/placeholder/400/320",
+          category: "Art"
+      },
+      {
+          title: "Quantum Computing Simulator",
+          description: "Educational tool for understanding quantum computing basics",
+          creator: "David Kumar",
+          image: "/api/placeholder/400/320",
+          category: "Science"
+      }
+  ];
+  
+  function createProjectCard(project) {
+      return `
+          <div class="project-card">
+              <div class="project-image">
+                  <img src="${project.image}" alt="${project.title}">
+              </div>
+              <div class="project-info">
+                  <h3 class="project-title">${project.title}</h3>
+                  <p class="project-description">${project.description}</p>
+                  <p class="project-creator">Created by ${project.creator}</p>
+              </div>
+          </div>
+      `;
+  }
+  
+  function renderProjects(filteredProjects = projects) {
+      const container = document.getElementById('projectContainer');
+      const containerClone = document.getElementById('projectContainerClone');
       
-      <div class="engageAnimate">
-        <svg class="engage" viewBox="0 0 1000 200">
-          <text x="50%" y="50%" dy=".95em" text-anchor="middle">CODING.</text>
-        </svg>
-      </div>
+      const projectsHTML = filteredProjects.map(createProjectCard).join('');
+      container.innerHTML = projectsHTML;
+      containerClone.innerHTML = projectsHTML;
+  }
+  
+  // Initialize with all projects
+  renderProjects();
+  
+  // Filter functionality
+  const filterButtons = document.querySelectorAll('.filter-button');
+  filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+          // Update active state
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          
+          // Filter projects
+          const category = button.textContent;
+          const filteredProjects = category === 'All Projects' 
+              ? projects 
+              : projects.filter(project => project.category === category);
+          
+          renderProjects(filteredProjects);
+      });
+  });
+  </script>
+    <script>
+      const videoContainer = document.getElementById('videoContainer');
+      
+      videoContainer.addEventListener('click', function() {
+        const isVideo = videoContainer.querySelector('iframe');
+        
+        if (!isVideo) {
+          // Load YouTube video with all parameters
+          videoContainer.innerHTML = `
+            <iframe 
+              class="youtube-embed"
+              src="https://www.youtube.com/embed/PDpr-WhafYE?si=RiAq6YtHpYI7VJHE&autoplay=1"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          `;
+        }
+      });
+    </script>
+    <script>
+      const messages = [
+      "🚀 Join our Code Sprint Challenge this Friday!",
+      "💻 Python Workshop: Build Your First AI Model",
+      "🎮 Game Dev Thursday: Unity Basics",
+      "🔒 Cybersecurity Seminar Next Week",
+      "👥 Networking Night with Tech Industry Pros",
+      "🌟 Show Off Your Projects at Tech Demo Day"
+      ];
+  
+      const marqueeElement = document.getElementById('marquee');
+      
+      // Repeat messages 8 times to ensure continuous scrolling
+      const repeatedMessages = Array(8).fill(messages).flat();
+      
+      // Add messages to DOM
+      repeatedMessages.forEach(message => {
+        const span = document.createElement('span');
+        span.className = 'marquee-item';
+        span.textContent = message;
+        marqueeElement.appendChild(span);
+      });
+    </script>
+    <script>
+      document.querySelector('.register-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        const section = document.querySelector(this.getAttribute('href'));
+        section.scrollIntoView({ behavior: 'smooth' });
+      });
+    </script>
+    <section id="registration-section" class="section">
+      <!-- Your existing registration content -->
 
-     
-      <div class="evolveAnimate">
-        <svg class="evolve" viewBox="0 0 1000 200">
-          <text x="100%" y="10%" dy=".95em" text-anchor="end">CONNECT.</text>
-        </svg>
+      <div class="container">
+        <h1 class="title">Join Our IT Club</h1>
+        <h2 class="subtitle">We're excited to have you!</h2>
+        <p class="welcome-text">
+            Welcome to the IT Club! We're a community of tech enthusiasts, developers, and innovators coming together to learn, share, and grow. Whether you're a beginner or an experienced professional, our club offers opportunities to enhance your skills, work on exciting projects, and connect with like-minded individuals. Fill out the form below to become a part of our thriving tech community!
+        </p>
+        <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fafafa;">
+         
+          <form action="process.php" method="POST">
+              <label for="name" style="display: block; color: #4a5568; margin-bottom: 8px; font-size: 14px; font-weight: 500;">Name</label>
+              <input type="text" id="name" name="name" placeholder="Irfan Pathan" required style="width: 100%; padding: 8px 12px; margin-bottom: 24px; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 20px; box-sizing: border-box; font-size: 14px; background-color: #f8fafc; color: #1a202c;">
+              
+              <label for="email" style="display: block; color: #4a5568; margin-bottom: 8px; font-size: 14px; font-weight: 500;">Email</label>
+              <input type="email" id="email" name="email" placeholder="irfan021p@gmail.com" required style="width: 100%; padding: 8px 12px; margin-bottom: 24px; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 20px; box-sizing: border-box; font-size: 14px; background-color: #f8fafc; color: #1a202c;">
+              
+              <label for="phone" style="display: block; color: #4a5568; margin-bottom: 8px; font-size: 14px; font-weight: 500;">Phone number</label>
+              <input type="tel" id="phone" name="phone" placeholder="Ph no." required style="width: 100%; padding: 8px 12px; margin-bottom: 24px; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 20px; box-sizing: border-box; font-size: 14px; background-color: #f8fafc; color: #1a202c;">
+              
+              <label for="interests" style="display: block; color: #4a5568; margin-bottom: 8px; font-size: 14px; font-weight: 500;">Areas of Interest</label>
+              <select id="interests" name="interests" required style="width: 100%; padding: 8px 12px; margin-bottom: 24px; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 20px; box-sizing: border-box; font-size: 14px; background-color: #f8fafc; color: #1a202c;">
+                  <option value="" disabled selected>Select your area of interest</option>
+                  <option value="social_media">Social Media</option>
+                  <option value="graphics">Graphics</option>
+                  <option value="creatives">Creatives</option>
+                  <option value="marketing">Marketing</option>
+                  <option value="documentation">Documentation</option>
+              </select>
+              
+              <button type="submit" style="width: 100%; padding: 14px; background-color: #14171f; color: white; border: none; border-radius: 20px; cursor: pointer; font-size: 16px; font-weight: 500; margin-top: 8px;">Register now</button>
+          </form>
       </div>
-    </main>
-      -->
-    <!-- Footer Section -->
+    </div>
+    </section>
     <footer class="Footer_Bg_Class">
       <div class="footer-container">
         <div class="footer-section">
