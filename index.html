@@ -254,52 +254,93 @@
       }
       
       .project-card {
-          display: inline-block;
+          display:inline-flex;
+          flex-direction: column;
           width: 280px;
           height: 360px;
-          margin: 0 10px;
+          margin: 0 15px;
           background: #f5f5f0;
           border-radius: 1rem;
           border: 2px solid #2a2a2a;
-          padding: 1rem;
+          padding: 1.5rem;
           vertical-align: top;
+          position: relative;
+          transition: all 0.3s ease;
       }
       
-      .project-image {
-          width: 100%;
-          height: 200px;
-          border-radius: 0.75rem;
-          border: 2px solid #2a2a2a;
-          overflow: hidden;
+      .project-card:hover {
+          transform: translate(2px, -2px);
+          box-shadow: -8px 8px 0px #E12F2B;
       }
       
-      .project-image img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-      }
-      
-      .project-info {
-          padding: 1rem 0;
-          text-align: left;
-      }
-      
-      .project-title {
-          font-size: 1.25rem;
+      .card-title {
+          font-size: 1.5rem;
           font-weight: bold;
           color: #1a1a1a;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.75rem;
+          /* Prevent title overflow */
+          white-space: normal;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
       }
       
-      .project-description {
-          font-size: 0.875rem;
-          color: #4a4a4a;
-      }
-      
-      .project-creator {
-          font-size: 0.875rem;
+      .card-tech {
+          font-size: 0.85rem;
           color: #666;
-          margin-top: 0.5rem;
+          margin-bottom: 1rem;
+          line-height: 1.4;
+          /* Prevent tech stack overflow */
+          white-space: normal;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+      }
+      
+      .card-description {
+          font-size: 0.95rem;
+          color: #333;
+          line-height: 1.5;
+          /* Allow description to take remaining space but prevent overflow */
+          flex: 1;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          /* Ensure text wraps */
+          white-space: normal;
+          margin-bottom: 3rem; /* Space for social icons */
+      }
+      
+      .card-links {
+          display: flex;
+          justify-content: flex-end;
+          gap: 1rem;
+          position: absolute;
+          bottom: 1.5rem;
+          right: 1.5rem;
+          /* Ensure links stay above content */
+          z-index: 1;
+      }
+      
+      .social-link {
+          width: 24px;
+          height: 24px;
+          transition: transform 0.2s ease;
+      }
+      
+      .social-link:hover {
+          transform: scale(1.1);
+      }
+      
+      .social-icon {
+          width: 100%;
+          height: 100%;
       }
       
       @keyframes scroll {
@@ -372,7 +413,7 @@
     <header class="Nav_Bar_Class">
       <ul>
         <li><a href="index.html">HOME</a></li>
-        <li><a href="#">ABOUT</a></li>
+        <li><a href="about.html">ABOUT</a></li>
         <li><a href="#">DEPARTMENTS</a></li>
        
         <li><a href="#">EVENTS</a></li>
@@ -440,64 +481,37 @@
   
   <script>
   const projects = [
-      {
-          title: "AI Healthcare Assistant",
-          description: "Machine learning model for early disease detection and diagnosis assistance",
-          creator: "Sarah Chen",
-          image: "/api/placeholder/400/320",
-          category: "Tech"
-      },
-      {
-          title: "Eco Smart Home",
-          description: "IoT-based energy management system for sustainable living",
-          creator: "Alex Rivera",
-          image: "/api/placeholder/400/320",
-          category: "Tech"
-      },
-      {
-          title: "AR Education Platform",
-          description: "Augmented reality platform for interactive learning experiences",
-          creator: "Maya Patel",
-          image: "/api/placeholder/400/320",
-          category: "Tech"
-      },
-      {
-          title: "Ocean Cleanup Drone",
-          description: "Autonomous drone for collecting ocean plastic waste",
-          creator: "James Wilson",
-          image: "/api/placeholder/400/320",
-          category: "Science"
-      },
-      {
-          title: "Digital Art Gallery",
-          description: "Virtual exhibition space for digital artists worldwide",
-          creator: "Emma Chang",
-          image: "/api/placeholder/400/320",
-          category: "Art"
-      },
-      {
-          title: "Quantum Computing Simulator",
-          description: "Educational tool for understanding quantum computing basics",
-          creator: "David Kumar",
-          image: "/api/placeholder/400/320",
-          category: "Science"
-      }
-  ];
-  
-  function createProjectCard(project) {
-      return `
-          <div class="project-card">
-              <div class="project-image">
-                  <img src="${project.image}" alt="${project.title}">
-              </div>
-              <div class="project-info">
-                  <h3 class="project-title">${project.title}</h3>
-                  <p class="project-description">${project.description}</p>
-                  <p class="project-creator">Created by ${project.creator}</p>
-              </div>
-          </div>
-      `;
-  }
+    {
+        title: "PROJECT 1",
+        description: "Analyze and interpret data from the National Parks Service on the status of endangered species in some of the most famous national parks.",
+        tech: "Python · Data analytics · Data science · Data visualization",
+        category: "Python"
+    },
+    {
+        title: "PROJECT 2",
+        description: "Fit a line to data about the honeybee population decline in the United States. Analyze trends and create predictive models.",
+        tech: "JavaScript · Data science · Machine learning",
+        category: "JavaScript"
+    }
+];
+
+function createProjectCard(project) {
+    return `
+        <div class="project-card" data-language="${project.category}">
+            <div class="card-title">${project.title}</div>
+            <div class="card-tech">${project.tech}</div>
+            <div class="card-description">${project.description}</div>
+            <div class="card-links">
+                <a href="#" class="social-link">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMEM1LjM3NCAwIDAgNS4zNzMgMCAxMmMwIDUuMzAyIDMuNDM4IDkuOCA4LjIwNyAxMS4zODcuNi4xMS44Mi0uMjYuODItLjU3N3YtMi4yMzRjLTMuMzM4LjcyNi00LjAzMy0xLjQxNi00LjAzMy0xLjQxNi0uNTQ2LTEuMzg3LTEuMzMzLTEuNzU2LTEuMzMzLTEuNzU2LTEuMDg5LS43NDUuMDgzLS43My4wODMtLjczIDEuMjA1LjA4NCAxLjgzOSAxLjIzNyAxLjgzOSAxLjIzNyAxLjA3IDEuODM0IDIuODA3IDEuMzA0IDMuNDkyLjk5Ny4xMDctLjc3NS40MTgtMS4zMDUuNzYyLTEuNjA0LTIuNjY1LS4zMDUtNS40NjctMS4zMzQtNS40NjctNS45MyAwLTEuMzEuNDY1LTIuMzggMS4yMzUtMy4yMi0uMTM1LS4zMDMtLjU0LTEuNTIzLjEwNS0zLjE3NiAwIDAgMS4wMDUtLjMyMiAzLjMgMS4yMy45Ni0uMjY3IDEuOTgtLjM5OSAzLS40MDUgMS4wMi4wMDYgMi4wNC4xMzggMyAuNDA1IDIuMjgtMS41NTIgMy4yODUtMS4yMyAzLjI4NS0xLjIzLjY0NSAxLjY1My4yNCAyLjg3My4xMiAzLjE3Ni43NjUuODQgMS4yMyAxLjkxIDEuMjMgMy4yMiAwIDQuNjEtMi44MDUgNS42MjUtNS40NzUgNS45Mi40Mi4zNi44MSAxLjA5Ni44MSAyLjIydjMuMjljMCAuMzE3LjIxLjY5NC44MjUuNTc3QzIwLjU2NSAyMS43OTYgMjQgMTcuMyAyNCAxMmMwLTYuNjI3LTUuMzczLTEyLTEyLTEyeiIvPjwvc3ZnPg==" alt="GitHub" class="social-icon">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTkuNjE1IDMuMTg0Yy0zLjYwNC0uMjQ2LTExLjYzMS0uMjQ1LTE1LjIzIDAtMy44OTcuMjY2LTQuMzU2IDIuNjItNC4zODUgOC44MTYuMDI5IDYuMTg1LjQ4NCA4LjU0OSA0LjM4NSA4LjgxNiAzLjYuMjQ1IDExLjYyNi4yNDYgMTUuMjMgMCAzLjg5Ny0uMjY2IDQuMzU2LTIuNjIgNC4zODUtOC44MTYtLjAyOS02LjE4NS0uNDg0LTguNTQ5LTQuMzg1LTguODE2ek05LjYyNSAxNS44NzJ2LTguNzVsOC4yNSA0LjM3NS04LjI1IDQuMzc1eiIgZmlsbD0iI2ZmMDAwMCIvPjwvc3ZnPg==" alt="YouTube" class="social-icon">
+                </a>
+            </div>
+        </div>
+    `;
+}
   
   function renderProjects(filteredProjects = projects) {
       const container = document.getElementById('projectContainer');

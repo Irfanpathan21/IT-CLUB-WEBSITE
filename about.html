@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: #000;
+        }
+
+        .Our_Philosophy_Class {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: #000;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .About_Background_Class {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        .Black_Tint {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .Black_Tint_Class {
+            fill: rgba(0,0,0,0.7);
+        }
+
+        .content-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+            z-index: 1;
+            display: flex;
+            gap: 40px;
+        }
+
+        .left-content {
+            flex: 1;
+            max-width: 800px;
+        }
+
+        .right-content {
+            position: relative;
+            width: 500px;
+            display: flex;
+            align-items: center;
+        }
+
+        .Mission_Text_Class {
+            margin-bottom: 60px;
+        }
+
+        .ID1_Educate__We_believe_in_giv_Class {
+            font-size: 18px;
+            line-height: 1.8;
+            color: white;
+        }
+
+        .ID1_Educate__We_believe_in_giv_Class span {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .Mission_Line {
+            width: 75.5px;
+            height: 3px;
+            margin: 20px 0;
+        }
+
+        .Mission_Line_Class {
+            stroke: #E12F2B;
+            stroke-width: 3px;
+        }
+
+        .OUR_MISSION__Class {
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .Philosophy_Text_Class {
+            margin-top: 60px;
+        }
+
+        .background_layer {
+            position: absolute;
+            right: 0;
+            opacity: 0.2;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .Our_symbol_is_emblematic_of_th_Class {
+            font-size: 18px;
+            line-height: 1.8;
+            color: white;
+        }
+
+        .Philosophy_Line {
+            width: 75.5px;
+            height: 3px;
+            margin: 20px 0;
+        }
+
+        .Philosophy_Line_Class {
+            stroke: #E12F2B;
+            stroke-width: 3px;
+        }
+
+        .OUR_PHILOSPOHY__Class {
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1200px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .right-content {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .background_layer {
+                position: static;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding: 20px;
+            }
+        }
+        .Story_Team_Slider_Class {
+            position: relative;
+            width: 676px;
+            height: 61px;
+            margin: 2rem auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .Container {
+            position: absolute;
+            width: 676px;
+            height: 61px;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        .Container_Class {
+            fill: rgba(0, 0, 0, 0.222);
+            width: 100%;
+            height: 100%;
+        }
+
+        .Selector_bi {
+            position: absolute;
+            width: 338px;
+            height: 61px;
+            left: 0;
+            top: 0;
+            z-index: 2;
+        }
+
+        .Selector_bi_Class {
+            fill: url(#Selector_bi);
+            width: 100%;
+            height: 100%;
+        }
+
+        .OUR_TEAM__Class, .OUR_STORY__Class {
+            position: relative;
+            z-index: 3;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0 2rem;
+        }
+
+        .OUR_TEAM__Class span:last-child {
+            color: #E12F2B;
+        }
+
+        .OUR_STORY__Class a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .OUR_STORY__Class:hover {
+            opacity: 0.8;
+        }
+
+        .OUR_TEAM__Class a, .OUR_STORY__Class a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .OUR_TEAM__Class a:visited, .OUR_STORY__Class a:visited {
+            text-decoration: none;
+        }
+
+        .OUR_TEAM__Class a:hover, .OUR_STORY__Class a:hover {
+            text-decoration: none;
+        }
+
+        .OUR_TEAM__Class a:active, .OUR_STORY__Class a:active {
+            text-decoration: none;
+        }
+
+        .OUR_TEAM__Class.active a {
+            color: #E12F2B;
+        }
+    </style>
+</head>
+<body>
+    <header class="Nav_Bar_Class">
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="#">DEPARTMENTS</a></li>
+         
+          <li><a href="#">EVENTS</a></li>
+          <li><a href="project.html">PROJECTS</a></li>
+          <li><a href="https://upg-chatbot.onrender.com/">CHAT WITH AI</a></li>
+        </ul>
+      </header>
+    <div id="Our_Team" class="Our_Team_Class">
+        <div class="Story_Team_Slider_Class">
+            <svg class="Container">
+                <rect class="Container_Class" rx="30.5" ry="30.5" x="0" y="0" width="676" height="61"></rect>
+            </svg>
+            <svg class="Selector_bi">
+                <linearGradient id="Selector_bi" spreadMethod="pad" x1="0" x2="1" y1="0.5" y2="0.5">
+                    <stop offset="0" stop-color="#f8bb01" stop-opacity="1.0"></stop>
+                    <stop offset="1" stop-color="#f8bb01" stop-opacity="1.0"></stop>
+                </linearGradient>
+                <rect class="Selector_bi_Class" rx="30.5" ry="30.5" x="0" y="0" width="338" height="61"></rect>
+            </svg>
+            <div class="OUR_TEAM__Class">
+                <a href="about.html"><span>OUR STORY</span></a>
+            </div>
+            <div class="OUR_STORY__Class">
+                <a href="team.html"><span>OUR TEAM</span></a>
+            </div>
+        </div>
+        <div id="Our_Philosophy" class="Our_Philosophy_Class">
+        
+            <div class="content-wrapper">
+                <div class="left-content">
+                    
+                    <div class="Philosophy_Text_Class">
+                        <div class="OUR_PHILOSPOHY__Class">
+                            <span>OUR</span><span style="color: #E12F2B;"> PHILOSOPHY</span>
+                        </div>
+                        <svg class="Philosophy_Line" viewBox="0 0 75.5 3">
+                            <path class="Philosophy_Line_Class" d="M 0 0 L 75.5 0"></path>
+                        </svg>
+                        <div class="Our_symbol_is_emblematic_of_th_Class">
+                            <span>The IT Club logo symbolizes the future of technology and innovation. The hexagonal structure represents strength, connectivity, and progression, while the circuit-like elements emphasize our commitment to technical excellence.<br><br>
+                            Our three-fold strategy—Educate, Engage, and Evolve (3E's)—is reflected in the design, signifying holistic development through knowledge, collaboration, and innovation.<br><br>
+                            We focus on 10 core domains where technology has made a transformative impact:<br>
+                            🚀 <b>Graphic Design</b><br>
+                            🌐 <b>Web Development</b><br>
+                            📊 <b>Digital Marketing</b><br>
+                            🎬 <b>Film Making</b><br>
+                            💻 <b>Programming</b><br>
+                            📈 <b>Data Analytics & Finance</b><br>
+                            🔍 <b>Spec Ops (Cybersecurity & Research)</b><br>
+                            📱 <b>App Development</b><br>
+                            🎨 <b>Creatives & PR</b><br>
+                            🤝 <b>Collaborations</b><br><br>
+                            Each department plays a crucial role in shaping the future of our members, ensuring a dynamic and inclusive tech-driven journey.</span>
+                        </div>
+                    </div>
+                    <div class="Mission_Text_Class">
+                        <div class="OUR_MISSION__Class">
+                            <span>OUR</span><span style="color: #E12F2B;"> MISSION</span>
+                        </div>
+                        <svg class="Mission_Line" viewBox="0 0 75.5 3">
+                            <path class="Mission_Line_Class" d="M 0 0 L 75.5 0"></path>
+                        </svg>
+                        <div class="ID1_Educate__We_believe_in_giv_Class">
+                            <span style="font-weight: 700; color: #E12F2B">1. EDUCATE</span><span>: We empower our members with knowledge, following a learning-centric strategy that forms the foundation of our community.</span>
+                            <span style="font-weight: 700; color: #E12F2B">2. ENGAGE</span><span>: True growth happens through action. We provide a platform for members to showcase their skills and innovate through events and activities.</span>
+                            <span style="font-weight: 700; color: #E12F2B">3. EVOLVE</span><span>: Growth is a journey. At IT Club, we aim to create paradigm-shifting experiences that drive technological and personal evolution.</span>
+                        </div>
+
+                    </div>
+                </div>                
+        </div>
+    </div>
+</body>
+</html>

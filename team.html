@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Team</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: #000;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 25, 25, 0.8));
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1920px;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            margin: 40px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .title span {
+            color: #E12F2B;
+        }
+
+        .team-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            position: relative;
+        }
+
+        .member {
+            text-align: center;
+            width: 180px;
+        }
+
+        .member-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 3px solid #E12F2B;
+            padding: 5px;
+            margin-bottom: 15px;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .member-name .highlight {
+            color: #E12F2B;
+        }
+
+        .member-role {
+            font-size: 14px;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        .top-row {
+            margin-bottom: 60px;
+        }
+
+        .middle-row {
+            margin-bottom: 60px;
+        }
+
+        .wave-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/1920/1080');
+            opacity: 0.1;
+            z-index: 1;
+        }
+        .Story_Team_Slider_Class {
+            position: relative;
+            width: 676px;
+            height: 61px;
+            margin: 2rem auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .Container {
+            position: absolute;
+            width: 676px;
+            height: 61px;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        .Container_Class {
+            fill: rgba(0, 0, 0, 0.222);
+            width: 100%;
+            height: 100%;
+        }
+
+        .Selector_bi {
+            position: absolute;
+            width: 338px;
+            height: 61px;
+            left: 338px; /* Move to right side for team page */
+            top: 0;
+            z-index: 2;
+        }
+
+        .Selector_bi_Class {
+            fill: url(#Selector_bi);
+            width: 100%;
+            height: 100%;
+        }
+
+        .OUR_TEAM__Class, .OUR_STORY__Class {
+            position: relative;
+            z-index: 3;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0 2rem;
+        }
+
+        .OUR_TEAM__Class.active a {
+            color: #E12F2B;
+        }
+
+        .OUR_STORY__Class a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .OUR_STORY__Class:hover, .OUR_TEAM__Class:hover {
+            opacity: 0.8;
+        }
+
+        .OUR_TEAM__Class a {
+            text-decoration: none;
+            color: white;
+        }
+        body {
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <header class="Nav_Bar_Class">
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="#">DEPARTMENTS</a></li>
+         
+          <li><a href="#">EVENTS</a></li>
+          <li><a href="project.html">PROJECTS</a></li>
+          <li><a href="https://upg-chatbot.onrender.com/">CHAT WITH AI</a></li>
+        </ul>
+      </header>
+      <div id="Our_Team" class="Our_Team_Class">
+        <div class="Story_Team_Slider_Class">
+            <svg class="Container">
+                <rect class="Container_Class" rx="30.5" ry="30.5" x="0" y="0" width="676" height="61"></rect>
+            </svg>
+            <svg class="Selector_bi">
+                <linearGradient id="Selector_bi" spreadMethod="pad" x1="0" x2="1" y1="0.5" y2="0.5">
+                    <stop offset="0" stop-color="#f8bb01" stop-opacity="1.0"></stop>
+                    <stop offset="1" stop-color="#f8bb01" stop-opacity="1.0"></stop>
+                </linearGradient>
+                <rect class="Selector_bi_Class" rx="30.5" ry="30.5" x="0" y="0" width="338" height="61"></rect>
+            </svg>
+            <div class="OUR_STORY__Class">
+                <a href="about.html"><span>OUR STORY</span></a>
+            </div>
+            <div class="OUR_TEAM__Class active">
+                <a href="TEAM.html"><span>OUR TEAM</span></a>
+            </div>
+        </div>
+
+        <h1 class="title">CORE<span>'24-25</span></h1>
+        
+        <div class="team-grid">
+            <!-- Top Row - President -->
+            <div class="row top-row">
+                <div class="member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/180/180" alt="President">
+                    </div>
+                    <div class="member-name">KRITI <span class="highlight">AGARWAL</span></div>
+                    <div class="member-role">PRESIDENT</div>
+                </div>
+            </div>
+
+            <!-- Second Row - Vice Presidents -->
+            <div class="row">
+                <div class="member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/180/180" alt="Vice President">
+                    </div>
+                    <div class="member-name">RUDRANSH <span class="highlight">SINGH</span></div>
+                    <div class="member-role">VICE PRESIDENT</div>
+                </div>
+                <div class="member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/180/180" alt="Vice President">
+                    </div>
+                    <div class="member-name">LAVANYA <span class="highlight">SRIVASTAVA</span></div>
+                    <div class="member-role">VICE PRESIDENT</div>
+                </div>
+            </div>
+
+            <!-- Third Row - HODs First Row -->
+            <div class="row middle-row">
+                
+                <div class="member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/180/180" alt="HOD">
+                    </div>
+                    <div class="member-name">CHARVI <span class="highlight">JAIN</span></div>
+                    <div class="member-role">HOD GRAPHIC DESIGN</div>
+                </div>
+                <div class="member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/180/180" alt="HOD">
+                    </div>
+                    <div class="member-name">PRANEETH <span class="highlight">KONAKALLA</span></div>
+                    <div class="member-role">HOD DA & FINANCE</div>
+                </div>
+                <div class="member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/180/180" alt="HOD">
+                    </div>
+                    <div class="member-name">SUJAL <span class="highlight">AGARWALLA</span></div>
+                    <div class="member-role">HOD WEB DESIGN</div>
+                </div>
+                <div class="member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/180/180" alt="HOD">
+                    </div>
+                    <div class="member-name">SAMRUDDHI <span class="highlight">GAJBHIYE</span></div>
+                    <div class="member-role">HOD PROGRAMMING</div>
+                </div>
+                <div class="member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/180/180" alt="HOD">
+                    </div>
+                    <div class="member-name">ANANT <span class="highlight">GUPTA</span></div>
+                    <div class="member-role">HOD DIGITAL MARKETING</div>
+                </div>
+                <div class="member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/180/180" alt="HOD">
+                    </div>
+                    <div class="member-name">DHRUV <span class="highlight">PANWAR</span></div>
+                    <div class="member-role">HOD APP DEVELOPMENT</div>
+                </div>
+            </div>
+
+            <!-- Fourth Row - HODs Second Row -->
+            <div class="row">
+                <div class="member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/180/180" alt="HOD">
+                    </div>
+                    <div class="member-name">RACHIT <span class="highlight">SARDA</span></div>
+                    <div class="member-role">HOD FILM MAKING</div>
+                </div>
+                <div class="member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/180/180" alt="HOD">
+                    </div>
+                    <div class="member-name">NYSAA <span class="highlight">SHUKLA</span></div>
+                    <div class="member-role">HOD FILM MAKING</div>
+                </div>
+                <div class="member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/180/180" alt="HOD">
+                    </div>
+                    <div class="member-name">RIYA <span class="highlight">SANGHVI</span></div>
+                    <div class="member-role">HOD CREATIVES</div>
+                </div>
+                <div class="member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/180/180" alt="HOD">
+                    </div>
+                    <div class="member-name">RANG <span class="highlight">PRADHAN</span></div>
+                    <div class="member-role">HOD COLLABORATIONS</div>
+                </div>
+                <div class="member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/180/180" alt="HOD">
+                    </div>
+                    <div class="member-name">NIHARIKA <span class="highlight">JAIN</span></div>
+                    <div class="member-role">HOD SPEC OPS</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
