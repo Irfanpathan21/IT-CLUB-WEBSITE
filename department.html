@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./assets/itclublogo.png">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0; /* Remove the padding that's pushing content down */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        h1 {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .preview-container {
+            margin-top: 100px; /* Add margin to create space below navbar */
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            flex-wrap: wrap;
+            padding: 0 20px; /* Move the horizontal padding here instead */
+        }
+        
+        .preview-block {
+            width: calc(50% - 15px);
+            min-width: 300px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .preview-block:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+        }
+        
+        
+        .preview-block:before {
+            content: "";
+            display: block;
+            padding-top: 56.25%; 
+        }
+        
+        .preview-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .preview-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .preview-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+
+        .preview-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            opacity: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .preview-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .preview-block {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fix the navbar positioning if needed */
+        .Nav_Bar_Class {
+            position: fixed; /* Change to fixed to stick to the top */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 75px;
+            display: flex;
+            justify-content: center;
+            background-color: #000;
+            z-index: 1000;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="Nav_Bar_Class">
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="department.html">DEPARTMENTS</a></li>
+          <li><a href="event.html">EVENTS</a></li>
+          <li><a href="project.html">PROJECTS</a></li>
+          <li><a href="https://upg-chatbot.onrender.com/">CHAT WITH AI</a></li>
+        </ul>
+      </header>
+    
+    <div class="preview-container">
+        
+        <div class="preview-block" onclick="window.open('https://upgitclub.rf.gd/', '_blank')">
+            <div class="preview-content">
+                <img src="https://i.ibb.co/3J5XzPm/gsm.png" alt="UPG it Club" class="preview-image">
+                <div class="preview-title">Graphics & Social Media</div>
+                <a href="https://upgitclub.rf.gd/" class="preview-link" target="_blank">Visit UPGit Club</a>
+            </div>
+        </div>
+
+        <div class="preview-block" onclick="window.open('https://upgitclub.rf.gd/', '_blank')">
+            <div class="preview-content">
+                <img src="https://i.ibb.co/zVskCfmP/ec.png" alt="UPG it Club" class="preview-image">
+                <div class="preview-title">Events & Creatives</div>
+                <a href="https://upgitclub.rf.gd/" class="preview-link" target="_blank">Visit UPGit Club</a>
+            </div>
+        </div>
+
+        <div class="preview-block" onclick="window.open('https://upgitclub.rf.gd/', '_blank')">
+            <div class="preview-content">
+                <img src="https://i.ibb.co/6cv3DBt2/mpr.jpg" alt="UPG it Club" class="preview-image">
+                <div class="preview-title">Marketing & PR</div>
+                <a href="https://upgitclub.rf.gd/" class="preview-link" target="_blank">Visit UPGit Club</a>
+            </div>
+        </div>
+
+        <div class="preview-block" onclick="window.open('https://upgitclub.rf.gd/', '_blank')">
+            <div class="preview-content">
+                <img src="https://i.ibb.co/n8DgVLnh/dcm.jpg" alt="UPG it Club" class="preview-image">
+                <div class="preview-title">Documentation</div>
+                <a href="https://upgitclub.rf.gd/" class="preview-link" target="_blank">Visit UPGit Club</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

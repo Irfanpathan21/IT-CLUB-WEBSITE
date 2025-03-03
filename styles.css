@@ -276,86 +276,7 @@ main {
     transform: scale(1.2);
 }
 
-/* Base styles for SVG text animation */
-.engageAnimate, .createAnimate, .impactAnimate {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
 
-/* Styling for the SVG container */
-.engage svg, .create svg, .impact svg {
-    font-family: "Montserrat", sans-serif;
-    width: 100%;
-    height: 100%;
-}
-
-/* Styling for the text within the SVG */
-svg text {
-    text-transform: uppercase;
-    animation: strokeAndFade 5s infinite alternate;
-    stroke-width: 2;
-    stroke: #E12F2B;
-    font-size: 80px;
-}
-
-/* Keyframe animation for stroke and fade-in/fade-out effect */
-@keyframes strokeAndFade {
-    0% {
-        opacity: 0;
-        fill: rgba(72, 138, 20, 0);
-        stroke: #E12F2B;
-        stroke-dashoffset: 25%;
-        stroke-dasharray: 0 50%;
-        stroke-width: 2;
-    }
-    14% {
-        opacity:  0.4;
-        fill: rgba(72, 138, 20, 0);
-        stroke: #E12F2B;
-    }
-    50% {
-        opacity: 1;
-        fill: #E12F2B;
-        stroke: #E12F2B;
-        stroke-dashoffset: -25%;
-        stroke-dasharray: 50% 0;
-        stroke-width: 0;
-    }
-    100% {
-        opacity: 0;
-        fill: rgba(72, 138, 20, 0);
-        stroke:  #E12F2B;
-        stroke-dashoffset: 25%;
-        stroke-dasharray: 0 50%;
-        stroke-width: 2;
-    }
-}
-
-/* Styling for individual words */
-
-/* Top Left - ENGAGE */
-.engageAnimate {
-    top: 15%; /* Adjust to vertically center *//* Centers horizontally */
-    font-size: 150px;
-    color:  #E12F2B; /* Different color for this word */
-}
-
-/* Centered - EDUCATE */
-.educateAnimate {
-    top: 40%; /* Adjust to vertically center */
-    left: 50%;
-    font-size: 150px;   /* Larger size */
-    color: #F26457; /* Different color for this word */
-}
-
-/* Bottom Right - EVOLVE */
-.evolveAnimate {
-    top: 55%;  /* Adjust to vertically center */
-    right: 10%;
-    font-size: 150px;   /* Slightly smaller size */
-    color:  #BA1E1A;  /* Different color for this word */
-}
 
 /* Optional styles to reset margins and paddings */
 * {
@@ -370,7 +291,7 @@ svg text {
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+    border-radius: 5px;
     background: #E12F2B;
 }
 
